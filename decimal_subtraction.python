@@ -1,0 +1,31 @@
+def str_to_int(string):
+    result = 0
+    negative = False
+
+    # Check for negative sign
+    if string[0] == '-':
+        negative = True
+        string = string[1:]
+
+    # Convert string to integer
+    for i in string:
+        result = result * 10 + int(i)
+
+    if negative:
+        result = -result
+
+    return result
+
+def decimal_subtraction(num1, num2):
+    dec_num1 = str_to_int(num1)
+    dec_num2 = str_to_int(num2)
+    result = dec_num1 - dec_num2
+    return str(result)
+
+# Test cases
+print(decimal_subtraction('19', '29'))  # -10
+print(decimal_subtraction('7', '8'))    # -1
+print(decimal_subtraction('0', '0'))    # 0
+print(decimal_subtraction('5', '-10'))  # 15
+print(decimal_subtraction('05', '07'))  # -2
+print(decimal_subtraction('99999999', '1'))  # 99999998
